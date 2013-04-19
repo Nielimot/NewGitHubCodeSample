@@ -18,9 +18,22 @@
 {
     [super viewDidLoad];
     NSLog(@"Testing");
+    NSString *fullURL = @"http://facebook.com";
+    NSURL *url = [NSURL URLWithString:fullURL];
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+    [self.webView loadRequest:requestObj];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
+-(void)webViewDidStartLoad:(UIWebView *)webView{
+    [self.activityIndicator startAnimating];
+    self.activityIndicator.hidden = NO;
+}
+
+-(void)webViewDidFinishLoad:(UIWebView *)webView{
+    [self.activityIndicator stopAnimating];
+    self.activityIndicator.hidden = YES;
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
