@@ -27,6 +27,7 @@
 
 -(void)webViewDidStartLoad:(UIWebView *)webView{
     [self.activityIndicator startAnimating];
+    NSLog(@"add Remote!!");
     self.activityIndicator.hidden = NO;
 }
 
